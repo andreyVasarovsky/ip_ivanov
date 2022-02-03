@@ -11,9 +11,14 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+    const ADMIN_ROLE_FK = 1;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $table = 'users';
     protected $guarded = [];
+
+    public function isAdmin():bool{
+        return $this->role_fk === self::ADMIN_ROLE_FK;
+    }
 
 }
