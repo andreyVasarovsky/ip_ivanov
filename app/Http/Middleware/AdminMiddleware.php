@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class AdminMiddleware
 {
-    const ADMIN_ROLE_FK = 1;
     /**
      * Handle an incoming request.
      *
@@ -17,7 +16,7 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role_fk !== self::ADMIN_ROLE_FK){
+        if (!auth()->user()->isAdmin()){
             return redirect()->route('home');
         }
 
