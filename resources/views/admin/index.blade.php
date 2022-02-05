@@ -34,6 +34,18 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-6">
+                            <div class="small-box bg-secondary">
+                                <div class="inner">
+                                    <h3> {{ $cultureGroups->count() }} </h3>
+                                    <p>Гуппы удобрений</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ico fas fa-list-alt"></i>
+                                </div>
+                                <a href="{{ route('admin.client.index') }}" class="small-box-footer">Смотреть <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-6">
                             <div class="small-box bg-warning">
                                 <div class="inner">
                                     <h3> {{ $clients->count() }} </h3>

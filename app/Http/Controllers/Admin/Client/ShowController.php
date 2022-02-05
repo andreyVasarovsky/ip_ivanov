@@ -6,11 +6,11 @@ namespace App\Http\Controllers\Admin\Client;
 use App\Http\Controllers\Controller;
 use App\Models\Fertilizer;
 
-class IndexController extends Controller
+class ShowController extends Controller
 {
     public function __invoke()
     {
         $fertilizers = Fertilizer::all();
-        return view('admin/client/index');
+        return view('admin/fertilizer/index', compact('fertilizers'));
     }
 }
