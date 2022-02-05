@@ -1,20 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <title>ИП Иванов Admin Panel</title>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ИП Иванов (Админ панель)</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
 </head>
-<body>
-<div id="app">
-    @yield('nav')
-    <main class="container py-4">
-        @yield('content')
-    </main>
-</div>
+<body class="hold-transition sidebar-mini layout-fixed">
+@yield('nav')
+@yield('content')
+<footer class="main-footer">
+    <strong>Copyright &copy; 2022 ИП Иванов.</strong> Все права защищены.
+    <div class="float-right d-none d-sm-inline-block">
+        <b>Версия</b> 1.0.0
+    </div>
+</footer>
+<!-- jQuery -->
+<script src=" {{asset('plugins/jquery/jquery.min.js')}} "></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- AdminLTE App -->
+<script src="{{ asset('dist/js/adminlte.js') }}"></script>
 </body>
 </html>
