@@ -42,7 +42,7 @@
                     <img src="{{ asset('dist/img/avatar.png') }}" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block" style="line-height: 14px;">
+                    <a href="{{ route('admin.user.show', Auth::user()->id) }}" class="d-block" style="line-height: 14px;">
                         {{ Auth::user()->name }} <br>
                         <span style="font-size: 12px;">{{ Auth::user()->email }}</span>
                     </a>
@@ -58,9 +58,21 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('admin.culture_group.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-list-alt"></i>
+                            <p>Группы удобрений</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('admin.client.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-user-friends"></i>
                             <p>Клиенты</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.user.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-users-cog"></i>
+                            <p>Пользователи</p>
                         </a>
                     </li>
                 </ul>
