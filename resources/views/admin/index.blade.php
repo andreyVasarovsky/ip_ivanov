@@ -42,7 +42,7 @@
                                 <div class="icon">
                                     <i class="ico fas fa-list-alt"></i>
                                 </div>
-                                <a href="{{ route('admin.client.index') }}" class="small-box-footer">Смотреть <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="{{ route('admin.culture_group.index') }}" class="small-box-footer">Смотреть <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <div class="col-lg-3 col-6">

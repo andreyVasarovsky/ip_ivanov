@@ -31,4 +31,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::patch('/clients/{client}', 'UpdateController')->name('admin.client.update');
         Route::delete('/clients/{client}', 'DestroyController')->name('admin.client.destroy');
     });
+    Route::group(['namespace' => 'CultureGroup'], function() {
+        Route::get('/culture_group', 'IndexController')->name('admin.culture_group.index');
+        Route::get('/culture_group/create', 'CreateController')->name('admin.culture_group.create');
+        Route::post('/culture_group/store', 'StoreController')->name('admin.culture_group.store');
+        Route::get('/culture_group/{group}', 'ShowController')->name('admin.culture_group.show');
+        Route::get('/culture_group/{group}/edit', 'EditController')->name('admin.culture_group.edit');
+        Route::patch('/culture_group/{group}', 'UpdateController')->name('admin.culture_group.update');
+        Route::delete('/culture_group/{group}', 'DestroyController')->name('admin.culture_group.destroy');
+    });
 });
