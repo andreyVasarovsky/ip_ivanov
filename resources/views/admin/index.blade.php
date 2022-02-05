@@ -24,7 +24,7 @@
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3>999</h3>
+                                    <h3>{{ $fertilizers->count() }}</h3>
                                     <p>Удобрений</p>
                                 </div>
                                 <div class="icon">
@@ -36,7 +36,7 @@
                         <div class="col-lg-3 col-6">
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h3>999</h3>
+                                    <h3> {{ $clients->count() }} </h3>
                                     <p>Клиенты</p>
                                 </div>
                                 <div class="icon">

@@ -3,11 +3,10 @@
 
 namespace App\Http\Controllers\Admin\Fertilizer;
 
-
 use App\Http\Controllers\Controller;
 use App\Models\Fertilizer;
 
-class IndexController extends Controller
+class ShowController extends Controller
 {
     public function __invoke()
     {

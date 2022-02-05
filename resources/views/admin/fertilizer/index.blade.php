@@ -20,6 +20,7 @@
                 </div>
             </div>
             <!-- Main content -->
+            {{dump($fertilizers)}}
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
