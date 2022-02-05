@@ -32,12 +32,21 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::delete('/clients/{client}', 'DestroyController')->name('admin.client.destroy');
     });
     Route::group(['namespace' => 'CultureGroup'], function() {
-        Route::get('/culture_group', 'IndexController')->name('admin.culture_group.index');
-        Route::get('/culture_group/create', 'CreateController')->name('admin.culture_group.create');
-        Route::post('/culture_group/store', 'StoreController')->name('admin.culture_group.store');
-        Route::get('/culture_group/{group}', 'ShowController')->name('admin.culture_group.show');
-        Route::get('/culture_group/{group}/edit', 'EditController')->name('admin.culture_group.edit');
-        Route::patch('/culture_group/{group}', 'UpdateController')->name('admin.culture_group.update');
-        Route::delete('/culture_group/{group}', 'DestroyController')->name('admin.culture_group.destroy');
+        Route::get('/culture_groups', 'IndexController')->name('admin.culture_group.index');
+        Route::get('/culture_groups/create', 'CreateController')->name('admin.culture_group.create');
+        Route::post('/culture_groups/store', 'StoreController')->name('admin.culture_group.store');
+        Route::get('/culture_groups/{group}', 'ShowController')->name('admin.culture_group.show');
+        Route::get('/culture_groups/{group}/edit', 'EditController')->name('admin.culture_group.edit');
+        Route::patch('/culture_groups/{group}', 'UpdateController')->name('admin.culture_group.update');
+        Route::delete('/culture_groups/{group}', 'DestroyController')->name('admin.culture_group.destroy');
+    });
+    Route::group(['namespace' => 'User'], function() {
+        Route::get('/users', 'IndexController')->name('admin.user.index');
+        Route::get('/users/create', 'CreateController')->name('admin.user.create');
+        Route::post('/users/store', 'StoreController')->name('admin.user.store');
+        Route::get('/users/{group}', 'ShowController')->name('admin.user.show');
+        Route::get('/users/{group}/edit', 'EditController')->name('admin.user.edit');
+        Route::patch('/users/{group}', 'UpdateController')->name('admin.user.update');
+        Route::delete('/users/{group}', 'DestroyController')->name('admin.user.destroy');
     });
 });

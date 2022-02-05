@@ -57,6 +57,19 @@
                                 <a href="{{ route('admin.client.index') }}" class="small-box-footer">Смотреть <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
+
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3> {{ $users->count() }} </h3>
+                                    <p>Пользователи</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ico fas fa-users-cog"></i>
+                                </div>
+                                <a href="{{ route('admin.user.index') }}" class="small-box-footer">Смотреть <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
