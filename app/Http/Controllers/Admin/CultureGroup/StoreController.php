@@ -4,13 +4,16 @@
 namespace App\Http\Controllers\Admin\CultureGroup;
 
 use App\Http\Controllers\Controller;
-use App\Models\Fertilizer;
+use App\Http\Requests\CultureGroup\StoreRequest;
+use App\Models\CultureGroup;
 
 class StoreController extends Controller
 {
-    public function __invoke()
+    public function __invoke(StoreRequest $request)
     {
-        $fertilizers = Fertilizer::all();
-        return view('admin/fertilizer/index', compact('fertilizers'));
+        $data = $request->validated();
+        CultureGroup::firstOrCreate($data);
+
+        return redirect(route('admin.culture_group.index'));
     }
 }

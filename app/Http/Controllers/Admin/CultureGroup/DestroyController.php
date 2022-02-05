@@ -4,13 +4,14 @@
 namespace App\Http\Controllers\Admin\CultureGroup;
 
 use App\Http\Controllers\Controller;
+use App\Models\CultureGroup;
 use App\Models\Fertilizer;
 
 class DestroyController extends Controller
 {
-    public function __invoke()
+    public function __invoke(CultureGroup $group)
     {
-        $fertilizers = Fertilizer::all();
-        return view('admin/fertilizer/index', compact('fertilizers'));
+        $group->delete();
+        return redirect(route('admin.culture_group.index'));
     }
 }

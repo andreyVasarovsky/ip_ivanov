@@ -10,17 +10,10 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0">Удобрения</h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Админ панель</a></li>
-                            </ol>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Main content -->
-            {{dump($fertilizers)}}
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">

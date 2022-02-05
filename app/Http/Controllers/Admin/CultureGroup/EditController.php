@@ -4,13 +4,12 @@
 namespace App\Http\Controllers\Admin\CultureGroup;
 
 use App\Http\Controllers\Controller;
-use App\Models\Fertilizer;
+use App\Models\CultureGroup;
 
 class EditController extends Controller
 {
-    public function __invoke()
+    public function __invoke(CultureGroup $group)
     {
-        $fertilizers = Fertilizer::all();
-        return view('admin/fertilizer/index', compact('fertilizers'));
+        return view('admin/culture_group/edit', compact('group'));
     }
 }

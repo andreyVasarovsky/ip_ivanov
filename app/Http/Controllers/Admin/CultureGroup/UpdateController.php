@@ -4,13 +4,16 @@
 namespace App\Http\Controllers\Admin\CultureGroup;
 
 use App\Http\Controllers\Controller;
-use App\Models\Fertilizer;
+use App\Http\Requests\CultureGroup\UpdateRequest;
+use App\Models\CultureGroup;
 
 class UpdateController extends Controller
 {
-    public function __invoke()
+    public function __invoke(UpdateRequest $request, CultureGroup $group)
     {
-        $fertilizers = Fertilizer::all();
-        return view('admin/fertilizer/index', compact('fertilizers'));
+        $data = $request->validated();
+        $group->update($data);
+
+        return redirect(route('admin.culture_group.index'));
     }
 }
