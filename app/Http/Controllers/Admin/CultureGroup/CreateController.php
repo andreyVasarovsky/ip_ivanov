@@ -4,7 +4,6 @@
 namespace App\Http\Controllers\Admin\CultureGroup;
 
 use App\Http\Controllers\Controller;
-use App\Models\Fertilizer;
 
 class CreateController extends Controller
 {

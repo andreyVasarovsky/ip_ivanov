@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin\CultureGroup;
 
 use App\Http\Controllers\Controller;
 use App\Models\CultureGroup;
-use App\Models\Fertilizer;
 
 class DestroyController extends Controller
 {

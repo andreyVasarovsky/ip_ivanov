@@ -6,6 +6,7 @@
     <title>ИП Иванов (Админ панель)</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -19,11 +20,12 @@
         <b>Версия</b> 1.0.0
     </div>
 </footer>
-<!-- jQuery -->
 <script src=" {{asset('plugins/jquery/jquery.min.js')}} "></script>
-<!-- jQuery UI 1.11.4 -->
+<script type="text/javascript" src="{{ asset('https://cdn.jsdelivr.net/momentjs/latest/moment.min.js') }}"></script>
+<script src=" {{asset('plugins/daterangepicker/daterangepicker.js')}} "></script>
 <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+
+<script src="{{ asset('js/admin/scripts.js') }}"></script>
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>

@@ -3,14 +3,13 @@
 
 namespace App\Http\Controllers\Admin\Client;
 
-use App\Http\Controllers\Controller;
-use App\Models\Fertilizer;
+use App\Http\Controllers\Admin\Client\BaseController;
+use App\Models\Client;
 
-class EditController extends Controller
+class EditController extends BaseController
 {
-    public function __invoke()
+    public function __invoke(Client $client)
     {
-        $fertilizers = Fertilizer::all();
-        return view('admin/fertilizer/index', compact('fertilizers'));
+        return view('admin/client/edit', compact('client'));
     }
 }

@@ -3,14 +3,14 @@
 
 namespace App\Http\Controllers\Admin\Client;
 
-use App\Http\Controllers\Controller;
-use App\Models\Fertilizer;
+use App\Http\Controllers\Admin\Client\BaseController;
+use App\Models\Client;
 
-class DestroyController extends Controller
+class DestroyController extends BaseController
 {
-    public function __invoke()
+    public function __invoke(Client $client)
     {
-        $fertilizers = Fertilizer::all();
-        return view('admin/fertilizer/index', compact('fertilizers'));
+        $client->delete();
+        return redirect(route('admin.client.index'));
     }
 }

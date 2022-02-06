@@ -3,14 +3,14 @@
 
 namespace App\Http\Controllers\Admin\Client;
 
-use App\Http\Controllers\Controller;
-use App\Models\Fertilizer;
+use App\Http\Controllers\Admin\Client\BaseController;
+use App\Models\Client;
 
-class IndexController extends Controller
+class IndexController extends BaseController
 {
     public function __invoke()
     {
-        $fertilizers = Fertilizer::all();
-        return view('admin/client/index');
+        $clients = Client::all();
+        return view('admin/client/index', compact('clients'));
     }
 }

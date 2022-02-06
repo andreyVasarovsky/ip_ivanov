@@ -3,14 +3,16 @@
 
 namespace App\Http\Controllers\Admin\Client;
 
-use App\Http\Controllers\Controller;
-use App\Models\Fertilizer;
+use App\Http\Controllers\Admin\Client\BaseController;
+use App\Http\Requests\Client\UpdateRequest;
+use App\Models\Client;
 
-class UpdateController extends Controller
+class UpdateController extends BaseController
 {
-    public function __invoke()
+    public function __invoke(UpdateRequest $request, Client $client)
     {
-        $fertilizers = Fertilizer::all();
-        return view('admin/fertilizer/index', compact('fertilizers'));
+        $data = $request->validated();
+        $this->service->update($client, $data);
+        return redirect(route('admin.client.index'));
     }
 }

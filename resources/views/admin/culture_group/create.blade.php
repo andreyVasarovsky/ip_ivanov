@@ -22,7 +22,8 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="title">Название</label>
-                                    <input type="text" name="title" class="form-control" id="title" placeholder="Название категории">
+                                    <input type="text" name="title" class="form-control" id="title" placeholder="Название категории"
+                                           value="{{ (empty(old('title'))) ? '' : old('title') }}">
                                     @error('title')
                                     <div class="text-danger">
                                         {{$message}}
