@@ -11,6 +11,6 @@ class IndexController extends Controller
     public function __invoke()
     {
         $groups = CultureGroup::all();
-        return view('admin/culture_group/index', compact('groups'));
+        return view('admin.culture_group.index', compact('groups'));
     }
 }

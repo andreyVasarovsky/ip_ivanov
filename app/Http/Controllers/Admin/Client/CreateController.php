@@ -9,6 +9,6 @@ class CreateController extends BaseController
 {
     public function __invoke()
     {
-        return view('admin/client/create');
+        return view('admin.client.create');
     }
 }

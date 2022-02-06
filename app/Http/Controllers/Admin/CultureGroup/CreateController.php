@@ -9,6 +9,6 @@ class CreateController extends Controller
 {
     public function __invoke()
     {
-        return view('admin/culture_group/create');
+        return view('admin.culture_group.create');
     }
 }

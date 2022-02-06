@@ -10,6 +10,6 @@ class EditController extends Controller
 {
     public function __invoke(CultureGroup $group)
     {
-        return view('admin/culture_group/edit', compact('group'));
+        return view('admin.culture_group.edit', compact('group'));
     }
 }

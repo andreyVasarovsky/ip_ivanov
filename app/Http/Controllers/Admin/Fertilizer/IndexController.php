@@ -12,6 +12,6 @@ class IndexController extends Controller
     public function __invoke()
     {
         $fertilizers = Fertilizer::all();
-        return view('admin/fertilizer/index', compact('fertilizers'));
+        return view('admin.fertilizer.index', compact('fertilizers'));
     }
 }

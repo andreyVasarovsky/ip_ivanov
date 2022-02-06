@@ -44,9 +44,9 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::get('/users', 'IndexController')->name('admin.user.index');
         Route::get('/users/create', 'CreateController')->name('admin.user.create');
         Route::post('/users/store', 'StoreController')->name('admin.user.store');
-        Route::get('/users/{group}', 'ShowController')->name('admin.user.show');
-        Route::get('/users/{group}/edit', 'EditController')->name('admin.user.edit');
-        Route::patch('/users/{group}', 'UpdateController')->name('admin.user.update');
-        Route::delete('/users/{group}', 'DestroyController')->name('admin.user.destroy');
+        Route::get('/users/{user}', 'ShowController')->name('admin.user.show');
+        Route::get('/users/{user}/edit', 'EditController')->name('admin.user.edit');
+        Route::patch('/users/{user}', 'UpdateController')->name('admin.user.update');
+        Route::delete('/users/{user}', 'DestroyController')->name('admin.user.destroy');
     });
 });

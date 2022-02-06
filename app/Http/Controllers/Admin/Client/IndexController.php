@@ -11,6 +11,6 @@ class IndexController extends BaseController
     public function __invoke()
     {
         $clients = Client::all();
-        return view('admin/client/index', compact('clients'));
+        return view('admin.client.index', compact('clients'));
     }
 }

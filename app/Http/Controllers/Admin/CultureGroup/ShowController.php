@@ -10,6 +10,6 @@ class ShowController extends Controller
 {
     public function __invoke(CultureGroup $group)
     {
-        return view('admin/culture_group/show', compact('group'));
+        return view('admin.culture_group.show', compact('group'));
     }
 }

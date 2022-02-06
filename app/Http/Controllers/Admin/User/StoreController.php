@@ -3,14 +3,15 @@
 
 namespace App\Http\Controllers\Admin\User;
 
-use App\Http\Controllers\Controller;
-use App\Models\Fertilizer;
+use App\Http\Controllers\Admin\User\BaseController;
+use App\Http\Requests\User\StoreRequest;
 
-class StoreController extends Controller
+class StoreController extends BaseController
 {
-    public function __invoke()
+    public function __invoke(StoreRequest $request)
     {
-        $fertilizers = Fertilizer::all();
-        return view('admin/fertilizer/index', compact('fertilizers'));
+        $data = $request->validated();
+        $this->service->store($data);
+        return redirect(route('admin.user.index'));
     }
 }

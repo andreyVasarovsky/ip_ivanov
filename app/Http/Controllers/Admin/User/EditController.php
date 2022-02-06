@@ -3,14 +3,14 @@
 
 namespace App\Http\Controllers\Admin\User;
 
-use App\Http\Controllers\Controller;
-use App\Models\Fertilizer;
+use App\Http\Controllers\Admin\User\BaseController;
+use App\Models\User;
 
-class EditController extends Controller
+class EditController extends BaseController
 {
-    public function __invoke()
+    public function __invoke(User $user)
     {
-        $fertilizers = Fertilizer::all();
-        return view('admin/fertilizer/index', compact('fertilizers'));
+        $user_roles = User::ROLE_TITLE_MAP;
+        return view('admin.user.edit', compact('user', 'user_roles'));
     }
 }

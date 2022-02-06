@@ -10,6 +10,6 @@ class ShowController extends BaseController
 {
     public function __invoke(Client $client)
     {
-        return view('admin/client/show', compact('client'));
+        return view('admin.client.show', compact('client'));
     }
 }

@@ -18,7 +18,7 @@ class IndexController
         $fertilizers = Fertilizer::all();
         $cultureGroups = CultureGroup::all();
 
-        return view('admin/index', compact([
+        return view('admin.index', compact([
             'users',
             'clients',
             'fertilizers',
