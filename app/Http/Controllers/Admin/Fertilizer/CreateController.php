@@ -4,13 +4,13 @@
 namespace App\Http\Controllers\Admin\Fertilizer;
 
 use App\Http\Controllers\Controller;
-use App\Models\Fertilizer;
+use App\Models\CultureGroup;
 
 class CreateController extends Controller
 {
     public function __invoke()
     {
-        $fertilizers = Fertilizer::all();
-        return view('admin.fertilizer.index', compact('fertilizers'));
+        $cultureGroups = CultureGroup::all();
+        return view('admin.fertilizer.create', compact('cultureGroups'));
     }
 }

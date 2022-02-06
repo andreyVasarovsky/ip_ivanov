@@ -4,13 +4,15 @@
 namespace App\Http\Controllers\Admin\Fertilizer;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Fertilizer\StoreRequest;
 use App\Models\Fertilizer;
 
 class StoreController extends Controller
 {
-    public function __invoke()
+    public function __invoke(StoreRequest $request)
     {
-        $fertilizers = Fertilizer::all();
-        return view('admin.fertilizer.index', compact('fertilizers'));
+        $data = $request->validated();
+        Fertilizer::firstOrCreate($data);
+        return redirect(route('admin.fertilizer.index'));
     }
 }

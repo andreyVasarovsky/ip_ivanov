@@ -9,11 +9,11 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6 align-items-center">
-                            <h1 class="m-0 d-inline">Просмотр пользователя</h1>
-                            <a href="{{ route('admin.user.edit', $user->id) }}" class="link-icon">
+                            <h1 class="m-0 d-inline">Просмотр клиента</h1>
+                            <a href="{{ route('admin.client.edit', $client->id) }}" class="link-icon">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <form action="{{ route('admin.user.destroy', $user->id) }}" method="POST" class="d-inline">
+                            <form action="{{ route('admin.client.destroy', $client->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="border-0 bg-transparent">
@@ -32,22 +32,25 @@
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Имя</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Роль</th>
+                                    <th scope="col">Название</th>
+                                    <th scope="col">Дата договора</th>
+                                    <th scope="col">Регион</th>
+                                    <th scope="col">Стоимость поставки</th>
+                                    <th scope="col">&nbsp;</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <th scope="row">{{ $user->id }}</th>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->getRoleTitle() }}</td>
+                                    <th scope="row">{{ $client->id }}</th>
+                                    <td>{{ $client->title }}</td>
+                                    <td>{{ $client->agreement_date }}</td>
+                                    <td>{{ $client->region }}</td>
+                                    <td>{{ $client->getFormattedDeliveryPrice() }}</td>
                                 </tr>
                                 </tbody>
                             </table>
 
-                            <a href="{{ route('admin.user.index') }}" type="button" class="btn btn-danger">Вернутся</a>
+                            <a href="{{ route('admin.client.index') }}" type="button" class="btn btn-danger">Вернутся</a>
                         </div>
                     </div>
                 </div>

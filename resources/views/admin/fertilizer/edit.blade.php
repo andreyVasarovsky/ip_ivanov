@@ -45,7 +45,7 @@
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-6">
-                                            <label for="delivery_price">Стоимость поставки</label>
+                                            <label for="title">Стоимость поставки</label>
                                             <input type="number" step="any" min="0" name="delivery_price" class="form-control"
                                                    id="delivery_price" placeholder="Стоимость поставки"
                                                    value="{{ (empty(old('delivery_price'))) ? $client->delivery_price : old('delivery_price') }}">
