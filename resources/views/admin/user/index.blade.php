@@ -8,10 +8,12 @@
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-sm-6">
+                        <div class="col-12">
                             <h1 class="m-0 d-inline align-middle">Пользователи</h1>
                             <a href="{{ route('admin.user.create') }}" type="button"
                                class="btn btn-success d-inline ml-2">Добавить</a>
+                            <a href="{{ route('admin.user.deleted') }}" type="button"
+                               class="btn btn-dark d-inline float-right">Посмотреть удаленные</a>
                         </div>
                     </div>
                 </div>
@@ -45,7 +47,8 @@
                                                 <a href="{{ route('admin.user.edit', $user->id) }}" class="action">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                <form action="{{ route('admin.user.destroy', $user->id) }}" method="POST" class="action">
+                                                <form action="{{ route('admin.user.destroy', $user->id) }}"
+                                                      method="POST" class="action">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="border-0 bg-transparent p-0">

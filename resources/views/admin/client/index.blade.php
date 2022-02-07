@@ -8,10 +8,12 @@
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-sm-6">
+                        <div class="col-12">
                             <h1 class="m-0 d-inline align-middle">Клиенты</h1>
                             <a href="{{ route('admin.client.create') }}" type="button"
                                class="btn btn-success d-inline ml-2">Добавить</a>
+                            <a href="{{ route('admin.client.deleted') }}" type="button"
+                               class="btn btn-dark d-inline float-right">Посмотреть удаленные</a>
                         </div>
                     </div>
                 </div>
