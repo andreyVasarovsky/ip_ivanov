@@ -41,15 +41,15 @@
                                     @foreach($fertilizers AS $fertilizer)
                                         <tr>
                                             <th scope="row">{{ $fertilizer->id }}</th>
-                                            <th>{{ $fertilizer->title }}</th>
-                                            <th>{{ number_format($fertilizer->nitrogen_norm, 2) }}</th>
-                                            <th>{{ number_format($fertilizer->phosphorus_norm, 2) }}</th>
-                                            <th>{{ number_format($fertilizer->potassium_norm, 2) }}</th>
-                                            <th>{{ $fertilizer->category->title }}</th>
-                                            <th>{{ $fertilizer->district }}</th>
-                                            <th>{{ number_format($fertilizer->price, 2) }}</th>
-                                            <th>{{ $fertilizer->desc }}</th>
-                                            <th>{{ $fertilizer->purpose }}</th>
+                                            <td>{{ $fertilizer->title }}</td>
+                                            <td>{{ number_format($fertilizer->nitrogen_norm, 2) }}</td>
+                                            <td>{{ number_format($fertilizer->phosphorus_norm, 2) }}</td>
+                                            <td>{{ number_format($fertilizer->potassium_norm, 2) }}</td>
+                                            <td>{{ $fertilizer->category->title }}</td>
+                                            <td>{{ $fertilizer->district }}</td>
+                                            <td>{{ number_format($fertilizer->price, 2) }}</td>
+                                            <td>{{ $fertilizer->desc }}</td>
+                                            <td>{{ $fertilizer->purpose }}</td>
                                             <td class="actions" style="font-size: 14px;">
                                                 <a href="{{ route('admin.fertilizer.show', $fertilizer->id) }}" class="action">
                                                     <i class="fas fa-eye"></i>
