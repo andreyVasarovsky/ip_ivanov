@@ -25,7 +25,7 @@
                             <div class="small-box bg-success">
                                 <div class="inner">
                                     <h3>{{ $fertilizers->count() }}</h3>
-                                    <p>Удобрений</p>
+                                    <p>Удобрения</p>
                                 </div>
                                 <div class="icon">
                                     <i class="iсon fas fa-seedling"></i>

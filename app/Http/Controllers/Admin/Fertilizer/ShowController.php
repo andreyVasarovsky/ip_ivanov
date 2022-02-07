@@ -8,9 +8,8 @@ use App\Models\Fertilizer;
 
 class ShowController extends Controller
 {
-    public function __invoke()
+    public function __invoke(Fertilizer $fertilizer)
     {
-        $fertilizers = Fertilizer::all();
-        return view('admin.fertilizer.index', compact('fertilizers'));
+        return view('admin.fertilizer.show', compact('fertilizer'));
     }
 }

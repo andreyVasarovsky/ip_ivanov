@@ -45,7 +45,7 @@
                                             <th>{{ number_format($fertilizer->nitrogen_norm, 2) }}</th>
                                             <th>{{ number_format($fertilizer->phosphorus_norm, 2) }}</th>
                                             <th>{{ number_format($fertilizer->potassium_norm, 2) }}</th>
-                                            <th>{{ $fertilizer->culture_group_id }}</th>
+                                            <th>{{ $fertilizer->category->title }}</th>
                                             <th>{{ $fertilizer->district }}</th>
                                             <th>{{ number_format($fertilizer->price, 2) }}</th>
                                             <th>{{ $fertilizer->desc }}</th>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Fertilizer;
 
 
 use App\Http\Controllers\Controller;
+use App\Models\CultureGroup;
 use App\Models\Fertilizer;
 
 class IndexController extends Controller

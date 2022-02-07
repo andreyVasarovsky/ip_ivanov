@@ -8,9 +8,9 @@ use App\Models\Fertilizer;
 
 class DestroyController extends Controller
 {
-    public function __invoke()
+    public function __invoke(Fertilizer $fertilizer)
     {
-        $fertilizers = Fertilizer::all();
-        return view('admin.fertilizer.index', compact('fertilizers'));
+        $fertilizer->delete();
+        return redirect(route('admin.fertilizer.index'));
     }
 }

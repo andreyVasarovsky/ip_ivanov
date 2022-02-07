@@ -107,7 +107,7 @@
                                     <label for="region">Район</label>
                                     <input type="text" name="district" class="form-control" id="district"
                                            placeholder="Район" value="{{ (empty(old('district'))) ? '' : old('district') }}">
-                                    @error('region')
+                                    @error('district')
                                     <div class="text-danger">
                                         {{$message}}
                                     </div>
@@ -125,9 +125,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="desc">Описание</label>
-                                    <textarea class="form-control" id="desc" rows="3"
-                                              placeholder="Описание" value="{{ (empty(old('desc'))) ? '' : old('desc') }}"
-                                    ></textarea>
+                                    <textarea class="form-control" name="desc" id="desc" rows="3" placeholder="Описание">{{ (empty(old('desc')))?'' : old('desc') }}</textarea>
                                     @error('desc')
                                     <div class="text-danger">
                                         {{$message}}

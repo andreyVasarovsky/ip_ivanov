@@ -25,11 +25,6 @@ class CreateFertilizersTable extends Migration
             $table->string('desc')->nullable();
             $table->string('purpose')->nullable();
             $table->timestamps();
-
-//            $table->index('culture_group_id', 'fertilizer_culture_group_idx');
-//            $table->foreign('culture_group_id', 'fertilizer_culture_group_fk')
-//                ->on('culture_groups')
-//                ->references('id');
         });
     }
 
