@@ -10,7 +10,7 @@ class DeletedListController extends BaseController
 {
     public function __invoke()
     {
-        $clients = Client::all();
-        return view('admin.client.index', compact('clients'));
+        $clients = Client::onlyTrashed()->get();
+        return view('admin.client.deleted_list', compact('clients'));
     }
 }

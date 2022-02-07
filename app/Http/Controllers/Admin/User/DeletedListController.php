@@ -10,7 +10,7 @@ class DeletedListController extends BaseController
 {
     public function __invoke()
     {
-        $users = User::all();
-        return view('admin.user.index', compact('users'));
+        $users = User::onlyTrashed()->get();
+        return view('admin.user.deleted_list', compact('users'));
     }
 }

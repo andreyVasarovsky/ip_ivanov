@@ -11,7 +11,7 @@ class DeletedListController extends Controller
 {
     public function __invoke()
     {
-        $fertilizers = Fertilizer::all();
-        return view('admin.fertilizer.index', compact('fertilizers'));
+        $fertilizers = Fertilizer::onlyTrashed()->get();
+        return view('admin.fertilizer.deleted_list', compact('fertilizers'));
     }
 }

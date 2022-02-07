@@ -10,7 +10,7 @@ class DeletedListController extends Controller
 {
     public function __invoke()
     {
-        $groups = CultureGroup::all();
-        return view('admin.culture_group.index', compact('groups'));
+        $groups = CultureGroup::onlyTrashed()->get();
+        return view('admin.culture_group.deleted_list', compact('groups'));
     }
 }
