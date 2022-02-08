@@ -25,14 +25,18 @@ class FilterRequest extends FormRequest
     {
         return [
             'title' => 'string',
-            'nitrogen_norm' => 'numeric',
-            'phosphorus_norm' => 'numeric',
-            'potassium_norm' => 'numeric',
-            'culture_group_id' => 'numeric',
+            'nitrogen_norm_from' => 'numeric',
+            'nitrogen_norm_till' => 'numeric',
+            'phosphorus_norm_from' => 'numeric',
+            'phosphorus_norm_till' => 'numeric',
+            'potassium_norm_from' => 'numeric',
+            'potassium_norm_till' => 'numeric',
+            'culture_group_id' => 'string',
 //            'district' => '',
-            'price' => 'numeric',
-            'desc' => '',
-            'purpose' => '',
+            'price_from' => 'numeric',
+            'price_till' => 'numeric',
+            'desc' => 'string',
+            'purpose' => 'string',
         ];
     }
 }

@@ -13,12 +13,10 @@ class IndexController extends Controller
 {
     public function __invoke(FilterRequest $request)
     {
-//        $data = $request->validated();
-//        $filter = app()->make(FertilizerFilter::class, ['queryParams' => array_filter($data)]);
-//        $fertilizers = Fertilizer::filter($filter)->get();
+        $data = $request->validated();
+        $filter = app()->make(FertilizerFilter::class, ['queryParams' => array_filter($data)]);
+        $fertilizers = Fertilizer::filter($filter)->get();
 
-        $fertilizers = Fertilizer::all();
-//        dd($fertilizers);
         return view('admin.fertilizer.index', compact('fertilizers'));
     }
 }
