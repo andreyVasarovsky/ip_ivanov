@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\HomeController;
 
 Auth::routes();
