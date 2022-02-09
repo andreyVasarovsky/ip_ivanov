@@ -67,7 +67,7 @@ class FertilizerFilter extends AbstractFilter
 
     public function cultureGroupId(Builder $builder, $value)
     {
-        $builder->whereIn('culture_group_id', explode(',', $value));
+        $builder->whereIn('culture_group_id', $value);
     }
 
     public function nitrogenNormTill(Builder $builder, $value)

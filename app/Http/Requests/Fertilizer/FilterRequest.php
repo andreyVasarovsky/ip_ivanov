@@ -24,14 +24,14 @@ class FilterRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'string',
+            'title' => 'string', //OK
             'nitrogen_norm_from' => 'numeric',
             'nitrogen_norm_till' => 'numeric',
             'phosphorus_norm_from' => 'numeric',
             'phosphorus_norm_till' => 'numeric',
             'potassium_norm_from' => 'numeric',
             'potassium_norm_till' => 'numeric',
-            'culture_group_id' => 'string',
+            'culture_group_id' => 'array',
 //            'district' => '',
             'price_from' => 'numeric',
             'price_till' => 'numeric',
