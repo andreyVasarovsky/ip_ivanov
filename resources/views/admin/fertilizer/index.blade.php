@@ -18,6 +18,7 @@
                     </div>
                 </div>
             </div>
+            @include('admin.fertilizer.filter')
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">

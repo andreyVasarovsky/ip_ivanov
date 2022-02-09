@@ -14,6 +14,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Route::get('/', 'IndexController@index')->name('admin.index');
     Route::group(['namespace' => 'Fertilizer', 'prefix' => 'fertilizers'], function() {
         Route::get('/', 'IndexController')->name('admin.fertilizer.index');
+        Route::post('/', 'IndexController')->name('admin.fertilizer.index');
         Route::get('/create', 'CreateController')->name('admin.fertilizer.create');
         Route::get('/deleted', 'DeletedListController')->name('admin.fertilizer.deleted');
         Route::get('/{fertilizer}', 'ShowController')->name('admin.fertilizer.show');
