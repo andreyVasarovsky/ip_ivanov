@@ -15,7 +15,6 @@ class IndexController extends Controller
     public function __invoke(FilterRequest $request)
     {
         $query = $request->validated();
-//        dd($query);
         $filter = app()->make(FertilizerFilter::class, ['queryParams' => array_filter($query)]);
         $fertilizers = Fertilizer::filter($filter)->get();
         $cultureGroups = CultureGroup::all();
