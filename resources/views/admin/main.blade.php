@@ -10,6 +10,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- For bootstrap select -->
+    <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css') }}"/>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 @yield('nav')
@@ -25,10 +28,12 @@
 <script src=" {{asset('plugins/daterangepicker/daterangepicker.js')}} "></script>
 <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 
+
+<!-- For bootstrap select -->
+<script src="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js') }}"></script>
+
 <script src="{{ asset('js/admin/scripts.js') }}"></script>
-<script>
-    $.widget.bridge('uibutton', $.ui.button)
-</script>
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 </body>

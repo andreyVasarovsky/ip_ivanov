@@ -12,10 +12,13 @@ window.onload = function() {
 
     document.getElementById("clear-filters").addEventListener("click", clearFilters);
     function clearFilters(e) {
-        Object.values(e.target.closest('form').getElementsByClassName('form-control')).map(input => {
+        console.log(e);
+        Object.values(e.target.closest('form').querySelectorAll('input[type="text"]')).map(input => {
             input.value = '';
         });
-        let submitBtnList = e.target.closest('form').querySelectorAll('[type="submit"]');
+
+
+        // let submitBtnList = e.target.closest('form').querySelectorAll('[type="submit"]');
         if(typeof submitBtnList[0] !== "undefined"){
             submitBtnList[0].click();
         }
