@@ -26,6 +26,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     });
     Route::group(['namespace' => 'Client', 'prefix' => 'clients'], function() {
         Route::get('/', 'IndexController')->name('admin.client.index');
+        Route::post('/', 'IndexController')->name('admin.client.index');
         Route::get('/create', 'CreateController')->name('admin.client.create');
         Route::get('/deleted', 'DeletedListController')->name('admin.client.deleted');
         Route::post('/store', 'StoreController')->name('admin.client.store');

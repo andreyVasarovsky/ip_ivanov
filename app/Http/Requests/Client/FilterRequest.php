@@ -24,12 +24,12 @@ class FilterRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'string',
-            'agreement_date_from' => 'string',
-            'agreement_date_till' => 'string',
-            'delivery_price_from' => 'numeric',
-            'delivery_price_till' => 'numeric',
-            'region' => 'string',
+            'title' => 'nullable|string',
+            'agreement_date_from' => 'nullable|string',
+            'agreement_date_till' => 'nullable|string',
+            'delivery_price_from' => 'nullable|numeric',
+            'delivery_price_till' => 'nullable|numeric',
+            'region' => 'nullable|string',
         ];
     }
 }

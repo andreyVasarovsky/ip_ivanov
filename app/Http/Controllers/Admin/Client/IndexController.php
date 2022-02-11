@@ -12,10 +12,14 @@ class IndexController extends BaseController
 {
     public function __invoke(FilterRequest $request)
     {
-        $data = $request->validated();
-        $filter = app()->make(ClientFilter::class, ['queryParams' => array_filter($data)]);
+        $query = $request->validated();
+        $filter = app()->make(ClientFilter::class, ['queryParams' => array_filter($query)]);
         $clients = Client::filter($filter)->get();
+        $regions = [
+            'Moscow' => 'Москва',
+            'SPB' => 'СПБ'
+        ];
 
-        return view('admin.client.index', compact('clients'));
+        return view('admin.client.index', compact('clients', 'regions', 'query'));
     }
 }
