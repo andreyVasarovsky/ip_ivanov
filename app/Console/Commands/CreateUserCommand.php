@@ -54,6 +54,7 @@ class CreateUserCommand extends Command
             return false;
         }
         $this->info('User created! Email: '.$email.' Password: '.$password);
+
         return true;
     }
 }

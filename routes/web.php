@@ -9,6 +9,10 @@ Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+Route::group(['namespace' => 'FastRegistration', 'prefix' => 'fast_registration'], function() {
+    Route::get('/', 'IndexController')->name('fast_registration.index');
+    Route::get('/create', 'CreateController')->name('fast_registration.create');
+});
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], function() {
     Route::get('/', 'IndexController@index')->name('admin.index');
