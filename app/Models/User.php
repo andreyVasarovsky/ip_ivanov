@@ -23,7 +23,7 @@ class User extends Authenticatable
     protected $guarded = [];
 
     public function isAdmin():bool{
-        return $this->role_fk === self::ADMIN_ROLE_FK;
+        return intval($this->role_fk) === self::ADMIN_ROLE_FK;
     }
 
     public function getRoleTitle():string{
