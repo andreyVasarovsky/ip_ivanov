@@ -15,6 +15,6 @@ class ImportController extends Controller
         $data = $request->validated();
         $path = Storage::putFileAs('/excel/import', $data['file'], 'fertilizers.xlsx');
         ImportClientJob::dispatch(Storage::path($path));
-        return redirect(route('admin.client.index'));
+        return redirect(route('admin.client.index'))->with('success', 'Данные импортируются!');
     }
 }

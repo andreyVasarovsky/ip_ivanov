@@ -34,6 +34,7 @@ class ImportClientJob implements ShouldQueue
      */
     public function handle()
     {
+        //php artisan queue:work
         Excel::import(new ClientsImport(), $this->filePath);
     }
 }

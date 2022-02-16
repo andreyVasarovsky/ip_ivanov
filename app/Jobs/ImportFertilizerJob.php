@@ -34,6 +34,7 @@ class ImportFertilizerJob implements ShouldQueue
      */
     public function handle()
     {
+        //php artisan queue:work
         Excel::import(new FertilizersImport(), $this->filePath);
     }
 }

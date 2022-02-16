@@ -24,7 +24,10 @@
                             <a href="{{ route('admin.client.deleted') }}" type="button"
                                class="btn btn-dark d-inline float-right">Посмотреть удаленные</a>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 mt-2">
+                            @if (session('success'))
+                                <div class="alert alert-success">{{ session('success') }}</div>
+                            @endif
                             @error('file')
                             <div class="text-danger">
                                 {{$message}}
