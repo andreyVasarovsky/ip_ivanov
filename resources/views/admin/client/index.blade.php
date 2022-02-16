@@ -13,7 +13,7 @@
                         </div>
                         <div class="col-12">
                             <a href="{{ route('admin.client.create') }}" type="button"
-                               class="btn btn-success d-inline ml-2">Добавить</a>
+                               class="btn btn-success d-inline">Добавить</a>
 
                             <form action="{{ route('admin.client.import') }}" method="POST"
                                   enctype="multipart/form-data" class="d-inline w-25">
