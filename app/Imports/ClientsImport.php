@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use App\Models\Client;
+use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -17,9 +18,12 @@ class ClientsImport implements ToCollection, WithHeadingRow
     {
         foreach ($collection AS $item){
             //Check date valid;
-            if (gettype($item['data_dogovora']) !== 'integer')
-                continue;
-            $date = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($item['data_dogovora']);
+            if (gettype($item['data_dogovora']) !== 'integer'){
+                Carbon::parse($item['data_dogovora']);
+            }else{
+                $date = \PhpOffice\PhpSpreadsheet\Shared\Date::excelToDateTimeObject($item['data_dogovora']);
+            }
+
             if (isset($item['naimenovanie']) && !is_null($item['naimenovanie'])){
                 Client::firstOrCreate([
                     'title' => $item['naimenovanie']
@@ -27,7 +31,7 @@ class ClientsImport implements ToCollection, WithHeadingRow
                     'title' => $item['naimenovanie'],
                     'agreement_date' => $date,
                     'delivery_price' => $item['stoimost_postavki'],
-                    'region' => $item['region'],
+                    'region' => $item['region'] ?? '',
                 ]);
             }
         }

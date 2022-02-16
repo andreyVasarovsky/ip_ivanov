@@ -22,7 +22,7 @@
                                        accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>
                                 <button class="btn btn-success d-inline">Импортировать EXCEL</button>
                             </form>
-
+                          
                             <a href="{{ route('admin.client.deleted') }}" type="button"
                                class="btn btn-dark d-inline float-right">Посмотреть удаленные</a>
                         </div>
