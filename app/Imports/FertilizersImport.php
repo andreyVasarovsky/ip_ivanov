@@ -15,12 +15,16 @@ class FertilizersImport implements ToCollection, WithHeadingRow
     */
     public function collection(Collection $collection)
     {
+        $cultureGroups = [];
         foreach ($collection AS $item){
             if (isset($item['naimenovanie']) && !is_null($item['naimenovanie'])){
-                $cultureGroupId = $item['kultura_id'];
-                if (isset($item['gruppa_kultur']) && !is_null($item['gruppa_kultur'])){
-                    $cultureGroup = CultureGroup::firstOrCreate(['title' => $item['gruppa_kultur']]);
-                    $cultureGroupId = $cultureGroup->id;
+                if (!isset($cultureGroups[$item['gruppa_kultur']])){
+                    $cultureGroupId = $item['kultura_id'];
+                    if (isset($item['gruppa_kultur']) && !is_null($item['gruppa_kultur'])){
+                        $cultureGroup = CultureGroup::firstOrCreate(['title' => $item['gruppa_kultur']]);
+                        $cultureGroupId = $cultureGroup->id;
+                    }
+                    $cultureGroups[$item['gruppa_kultur']] = $cultureGroupId;
                 }
 
                 Fertilizer::firstOrCreate([
@@ -30,7 +34,7 @@ class FertilizersImport implements ToCollection, WithHeadingRow
                     'nitrogen_norm' => $item['norma_azot'],
                     'phosphorus_norm' => $item['norma_fosfor'],
                     'potassium_norm' => $item['norma_kalii'],
-                    'culture_group_id' => $cultureGroupId,
+                    'culture_group_id' => $cultureGroups[$item['gruppa_kultur']],
                     'district' => $item['raion'],
                     'price' => $item['stoimost'],
                     'desc' => $item['opisanie'],
