@@ -39,7 +39,9 @@ class ImportFertilizerCommand extends Command
      */
     public function handle()
     {
-        Excel::import(new FertilizersImport(), 'users.xlsx');
-        return 0;
+        ini_set('memory_limit', '-1');
+        Excel::import(new FertilizersImport(), public_path('excel/import/fertilizers.xlsx'));
+        $this->info('Import completed');
+        return true;
     }
 }
