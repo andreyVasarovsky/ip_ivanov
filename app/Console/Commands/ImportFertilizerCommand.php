@@ -18,7 +18,7 @@ class ImportFertilizerCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Import import for Fertilizers';
 
     /**
      * Create a new command instance.

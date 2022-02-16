@@ -18,7 +18,7 @@ class ImportClientCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Import excel for Clients';
 
     /**
      * Create a new command instance.
