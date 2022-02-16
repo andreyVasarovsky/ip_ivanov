@@ -2,7 +2,9 @@
 
 namespace App\Console\Commands;
 
+use App\Imports\FertilizersImport;
 use Illuminate\Console\Command;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ImportFertilizerCommand extends Command
 {
@@ -37,6 +39,7 @@ class ImportFertilizerCommand extends Command
      */
     public function handle()
     {
+        Excel::import(new FertilizersImport(), 'users.xlsx');
         return 0;
     }
 }
