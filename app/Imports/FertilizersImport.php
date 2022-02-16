@@ -15,8 +15,12 @@ class FertilizersImport implements ToCollection, WithHeadingRow
     */
     public function collection(Collection $collection)
     {
+        $cultureGroups = CultureGroup::all()->keyBy('id');
+
         foreach ($collection AS $item){
             if (isset($item['naimenovanie']) && !is_null($item['naimenovanie'])){
+                if (!isset($cultureGroups[$item['kultura_id']]))
+                    continue;
                 Fertilizer::firstOrCreate([
                     'title' => $item['naimenovanie']
                 ],[
