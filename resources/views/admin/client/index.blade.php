@@ -14,7 +14,7 @@
                         <div class="col-12">
                             <a href="{{ route('admin.client.create') }}" type="button"
                                class="btn btn-success d-inline">Добавить</a>
-
+                            <!--
                             <form action="{{ route('admin.client.import') }}" method="POST"
                                   enctype="multipart/form-data" class="d-inline w-25">
                                 @csrf
@@ -22,7 +22,7 @@
                                        accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>
                                 <button class="btn btn-success d-inline">Импортировать EXCEL</button>
                             </form>
-                          
+                            -->
                             <a href="{{ route('admin.client.deleted') }}" type="button"
                                class="btn btn-dark d-inline float-right">Посмотреть удаленные</a>
                         </div>
