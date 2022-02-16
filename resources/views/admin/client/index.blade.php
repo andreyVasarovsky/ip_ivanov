@@ -8,12 +8,30 @@
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-12">
+                        <div class="col-12 mb-2">
                             <h1 class="m-0 d-inline align-middle">Клиенты</h1>
+                        </div>
+                        <div class="col-12">
                             <a href="{{ route('admin.client.create') }}" type="button"
                                class="btn btn-success d-inline ml-2">Добавить</a>
+
+                            <form action="{{ route('admin.client.import') }}" method="POST"
+                                  enctype="multipart/form-data" class="d-inline w-25">
+                                @csrf
+                                <input type="file" name="file" class="form-control w-25 d-inline"
+                                       accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>
+                                <button class="btn btn-success d-inline">Импортировать EXCEL</button>
+                            </form>
+
                             <a href="{{ route('admin.client.deleted') }}" type="button"
                                class="btn btn-dark d-inline float-right">Посмотреть удаленные</a>
+                        </div>
+                        <div class="col-12">
+                            @error('file')
+                            <div class="text-danger">
+                                {{$message}}
+                            </div>
+                            @enderror
                         </div>
                     </div>
                 </div>

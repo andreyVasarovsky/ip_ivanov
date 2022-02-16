@@ -21,6 +21,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::post('/', 'IndexController')->name('admin.fertilizer.index');
         Route::get('/create', 'CreateController')->name('admin.fertilizer.create');
         Route::get('/deleted', 'DeletedListController')->name('admin.fertilizer.deleted');
+        Route::post('/import', 'ImportController')->name('admin.fertilizer.import');
         Route::get('/{fertilizer}', 'ShowController')->name('admin.fertilizer.show');
         Route::get('/{fertilizer}/edit', 'EditController')->name('admin.fertilizer.edit');
         Route::post('/store', 'StoreController')->name('admin.fertilizer.store');
@@ -33,6 +34,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::post('/', 'IndexController')->name('admin.client.index');
         Route::get('/create', 'CreateController')->name('admin.client.create');
         Route::get('/deleted', 'DeletedListController')->name('admin.client.deleted');
+        Route::post('/import', 'ImportController')->name('admin.client.import');
         Route::post('/store', 'StoreController')->name('admin.client.store');
         Route::get('/{client}', 'ShowController')->name('admin.client.show');
         Route::get('/{client}/edit', 'EditController')->name('admin.client.edit');
