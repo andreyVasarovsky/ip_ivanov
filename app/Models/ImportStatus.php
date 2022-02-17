@@ -15,4 +15,18 @@ class ImportStatus extends Model
         2 => 'Ошибка во время импорта',
         3 => 'Данные успешно импортированы',
     ];
+    const STATUSES_COLOR_LIST = [
+        1 => 'text-primary',
+        2 => 'text-danger',
+        3 => 'text-success',
+    ];
+    const STATUS_MAP = [
+        'NEW' => 1,
+        'FAILED' => 2,
+        'SUCCESS' => 3,
+    ];
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

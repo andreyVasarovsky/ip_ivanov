@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Imports\ClientsImport;
+use App\Models\ImportStatus;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -15,16 +16,19 @@ class ImportClientJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $filePath;
+    public $filePath;
+    public $importStatusFk;
 
     /**
      * Create a new job instance.
      *
      * @param string $filePath
+     * @param $importStatusFk
      */
-    public function __construct(string $filePath)
+    public function __construct(string $filePath, $importStatusFk)
     {
         $this->filePath = $filePath;
+        $this->importStatusFk = $importStatusFk;
     }
 
     /**
@@ -34,7 +38,25 @@ class ImportClientJob implements ShouldQueue
      */
     public function handle()
     {
-        //php artisan queue:work
         Excel::import(new ClientsImport(), $this->filePath);
+        $this->updateImportStatus();
+    }
+
+    /**
+     * Handle a job failure.
+     *
+     * @return void
+     */
+    public function failed($ex)
+    {
+        $this->updateImportStatus(false);
+    }
+
+    private function updateImportStatus($success = true){
+        $importStatus = (new ImportStatus())->find($this->importStatusFk);
+        if (!empty($importStatus->id)){
+            $status = ($success) ? ImportStatus::STATUS_MAP['SUCCESS'] : ImportStatus::STATUS_MAP['FAILED'];
+            $importStatus->update(['status' => $status]);
+        }
     }
 }

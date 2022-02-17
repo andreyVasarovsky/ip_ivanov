@@ -17,29 +17,26 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-6">
                             @if($imports->count() > 0)
                                 <table class="table table-hover hover-table-actions close-borders">
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">Название</th>
-                                        <th scope="col">Норма Азот</th>
-                                        <th scope="col">Норма Фосфор</th>
-                                        <th scope="col">Норма Калий</th>
-                                        <th scope="col">Группа культур</th>
-                                        <th scope="col">Район</th>
-                                        <th scope="col">Стоимость</th>
-                                        <th scope="col">Описание</th>
-                                        <th scope="col">Назначение</th>
-                                        <th scope="col">&nbsp;</th>
+                                        <th scope="col">Статус</th>
+                                        <th scope="col">Автор</th>
+                                        <th scope="col">Дата</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($imports AS $import)
                                         <tr>
                                             <th scope="row">{{ $import->id }}</th>
-                                            <td>{{ $import->status }}</td>
+                                            <td class="{{ $statusesColors[$import->status] }}">
+                                                {{ $statuses[$import->status] }}
+                                            </td>
+                                            <td>{{ $import->user->name }} ({{ $import->user->email }})</td>
+                                            <td>{{ $import->created_at }}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
