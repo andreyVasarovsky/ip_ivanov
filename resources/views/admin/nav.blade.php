@@ -75,6 +75,12 @@
                             <p>Пользователи</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.import_status.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-file-import"></i>
+                            <p>Импорты</p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

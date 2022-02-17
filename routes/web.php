@@ -27,7 +27,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::post('/store', 'StoreController')->name('admin.fertilizer.store');
         Route::patch('/{fertilizer}', 'UpdateController')->name('admin.fertilizer.update');
         Route::delete('/{fertilizer}', 'DestroyController')->name('admin.fertilizer.destroy');
-
     });
     Route::group(['namespace' => 'Client', 'prefix' => 'clients'], function() {
         Route::get('/', 'IndexController')->name('admin.client.index');
@@ -60,5 +59,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::get('/{user}/edit', 'EditController')->name('admin.user.edit');
         Route::patch('/{user}', 'UpdateController')->name('admin.user.update');
         Route::delete('/{user}', 'DestroyController')->name('admin.user.destroy');
+    });
+    Route::group(['namespace' => 'ImportStatus', 'prefix' => 'import_status'], function() {
+        Route::get('/', 'IndexController')->name('admin.import_status.index');
     });
 });
