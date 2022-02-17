@@ -17,7 +17,7 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12 col-md-8 col-lg-6">
                             @if($imports->count() > 0)
                                 <table class="table table-hover hover-table-actions close-borders">
                                     <thead>
@@ -41,6 +41,9 @@
                                     @endforeach
                                     </tbody>
                                 </table>
+                                <div class="pagination justify-content-center mt-3 text-center">
+                                    {{ $imports->withQueryString()-> links() }}
+                                </div>
                             @else
                                 <div class="alert alert-dark" role="alert">
                                     Записей нет!
