@@ -17,7 +17,7 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12 col-md-8 col-lg-6">
+                        <div class="col-12">
                             @if($imports->count() > 0)
                                 <table class="table table-hover hover-table-actions close-borders">
                                     <thead>
@@ -25,6 +25,7 @@
                                         <th scope="col">#</th>
                                         <th scope="col">Статус</th>
                                         <th scope="col">Автор</th>
+                                        <th scope="col">Ошибки</th>
                                         <th scope="col">Дата</th>
                                     </tr>
                                     </thead>
@@ -36,6 +37,13 @@
                                                 {{ $statuses[$import->status] }}
                                             </td>
                                             <td>{{ $import->user->name }} ({{ $import->user->email }})</td>
+                                            <td>
+                                                @if(empty($import->fails))
+                                                    Пусто
+                                                @else
+                                                    {{ $import->fails }}
+                                                @endif
+                                            </td>
                                             <td>{{ $import->created_at }}</td>
                                         </tr>
                                     @endforeach
