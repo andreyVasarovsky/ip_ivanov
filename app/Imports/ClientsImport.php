@@ -17,6 +17,7 @@ class ClientsImport implements ToCollection, WithHeadingRow
     public function collection(Collection $collection)
     {
         foreach ($collection AS $item){
+            //test here
             //Check date valid;
             if (gettype($item['data_dogovora']) !== 'integer'){
                 Carbon::parse($item['data_dogovora']);
