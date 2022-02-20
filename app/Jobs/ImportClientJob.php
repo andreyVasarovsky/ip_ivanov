@@ -38,7 +38,14 @@ class ImportClientJob implements ShouldQueue
      */
     public function handle()
     {
-        Excel::import(new ClientsImport(), $this->filePath);
+        try{
+            Excel::import(new ClientsImport(), $this->filePath);
+        }catch (\Maatwebsite\Excel\Validators\ValidationException $e){
+            $failures = $e->failures();
+            dump(1);
+            dd($failures);
+        }
+//        Excel::import(new ClientsImport(), $this->filePath);
         $this->updateImportStatus();
     }
 
