@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Imports\FertilizersImport;
+use App\Imports\FertilizersImportOutdated;
 use Illuminate\Console\Command;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -41,7 +41,7 @@ class ImportFertilizerCommand extends Command
     {
         ini_set('memory_limit', '-1');
 //        Excel::import(new FertilizersImport(), public_path('excel/import/fertilizers.xlsx'));
-        Excel::import(new FertilizersImport(), storage_path('app/excel/import/fertilizers.xlsx'));
+        Excel::import(new FertilizersImportOutdated(), storage_path('app/excel/import/fertilizers.xlsx'));
         $this->info('Import completed');
         return true;
     }

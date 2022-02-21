@@ -4,7 +4,6 @@ namespace App\Imports;
 
 use App\Models\Client;
 use Illuminate\Support\Carbon;
-use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\SkipsErrors;
 use Maatwebsite\Excel\Concerns\SkipsFailures;

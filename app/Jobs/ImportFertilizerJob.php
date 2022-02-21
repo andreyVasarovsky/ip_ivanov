@@ -18,6 +18,7 @@ class ImportFertilizerJob implements ShouldQueue
 
     public $filePath;
     public $importStatusFk;
+    private $errors = [];
 
     /**
      * Create a new job instance.
@@ -38,7 +39,9 @@ class ImportFertilizerJob implements ShouldQueue
      */
     public function handle()
     {
-        Excel::import(new FertilizersImport(), $this->filePath);
+        $import = new FertilizersImport();
+        $import->import($this->filePath);
+        $this->errors = $import->failures();
         $this->updateImportStatus();
     }
 
@@ -56,7 +59,7 @@ class ImportFertilizerJob implements ShouldQueue
         $importStatus = (new ImportStatus())->find($this->importStatusFk);
         if (!empty($importStatus->id)){
             $status = ($success) ? ImportStatus::STATUS_MAP['SUCCESS'] : ImportStatus::STATUS_MAP['FAILED'];
-            $importStatus->update(['status' => $status]);
+            $importStatus->update(['status' => $status, 'fails' => json_encode($this->errors)]);
         }
     }
 }
