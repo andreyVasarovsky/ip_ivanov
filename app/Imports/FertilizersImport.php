@@ -36,7 +36,7 @@ class FertilizersImport implements ToModel, WithValidation, WithHeadingRow, Skip
     public function rules(): array
     {
         return [
-            'naimenovanie' => 'required',
+            'naimenovanie' => 'required|unique:fertilizers,title',
             'norma_azot' => 'nullable|min:0',
             'norma_fosfor' => 'nullable|min:0',
             'norma_kalii' => 'nullable|min:0',
@@ -55,6 +55,7 @@ class FertilizersImport implements ToModel, WithValidation, WithHeadingRow, Skip
     {
         return [
             'naimenovanie.required' => 'Title is required!',
+            'naimenovanie.unique' => 'This Fertilizer already exists!',
             'stoimost.required' => 'Price required!',
             'stoimost.min' => 'Price must be >= 0!',
             'norma_kalii.min' => 'Nitrogen norm. must be >= 0',

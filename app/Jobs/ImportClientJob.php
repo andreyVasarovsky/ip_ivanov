@@ -43,7 +43,7 @@ class ImportClientJob implements ShouldQueue
         $import = new ClientsImport();
         $import->import($this->filePath);
         $this->errors = $import->failures();
-        $this->updateImportStatus();
+        $this->updateImportStatus(count($this->errors) === 0);
     }
 
     /**

@@ -42,7 +42,7 @@ class ImportFertilizerJob implements ShouldQueue
         $import = new FertilizersImport();
         $import->import($this->filePath);
         $this->errors = $import->failures();
-        $this->updateImportStatus();
+        $this->updateImportStatus(count($this->errors) === 0);
     }
 
     /**

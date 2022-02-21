@@ -34,8 +34,8 @@ class ClientsImport implements ToModel, WithValidation, WithHeadingRow, SkipsOnE
     public function rules(): array
     {
         return [
+            'naimenovanie' => 'required|unique:clients,title',
             'data_dogovora' => 'required|date_format:d.m.Y',
-            'naimenovanie' => 'required',
             'stoimost_postavki' => 'required|numeric|min:0',
         ];
     }
@@ -47,6 +47,7 @@ class ClientsImport implements ToModel, WithValidation, WithHeadingRow, SkipsOnE
     {
         return [
             'naimenovanie.required' => 'Title is required!',
+            'naimenovanie.unique' => 'This Client already exists!',
             'data_dogovora.required' => 'Date is required!',
             'stoimost_postavki.required' => 'Delivery price required!',
             'data_dogovora.date_format' => 'Invalid date format. Required: d.m.Y!',
