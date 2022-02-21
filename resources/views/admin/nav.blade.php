@@ -81,6 +81,12 @@
                             <p>Импорты</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.export.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-file-export"></i>
+                            <p>Эксорты</p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

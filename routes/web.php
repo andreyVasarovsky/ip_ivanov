@@ -63,4 +63,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Route::group(['namespace' => 'ImportStatus', 'prefix' => 'import_status'], function() {
         Route::get('/', 'IndexController')->name('admin.import_status.index');
     });
+    Route::group(['namespace' => 'ExportList', 'prefix' => 'export'], function() {
+        Route::get('/', 'IndexController')->name('admin.export.index');
+    });
 });
