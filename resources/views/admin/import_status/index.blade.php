@@ -38,7 +38,7 @@
                                             </td>
                                             <td>{{ $import->user->name }} ({{ $import->user->email }})</td>
                                             <td>
-                                                @if(empty($import->fails))
+                                                @if(empty($import->fails) || count(json_decode($import->fails)) === 0)
                                                     Пусто
                                                 @else
                                                     {{ $import->fails }}

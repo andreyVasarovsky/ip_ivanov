@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Imports\ClientsImport;
+use App\Imports\ClientsImportOutdated;
 use Illuminate\Console\Command;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -41,7 +41,7 @@ class ImportClientCommand extends Command
     {
         ini_set('memory_limit', '-1');
 //        Excel::import(new ClientsImport(), public_path('excel/import/clients.xlsx'));
-        Excel::import(new ClientsImport(), storage_path('app/excel/import/clients.xlsx'));
+        Excel::import(new ClientsImportOutdated(), storage_path('app/excel/import/clients.xlsx'));
         $this->info('Import completed');
         return true;
     }

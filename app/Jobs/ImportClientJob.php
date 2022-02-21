@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Imports\ClientsImportOutdated;
 use App\Imports\ClientsImport;
 use App\Models\ImportStatus;
 use Illuminate\Bus\Queueable;
@@ -18,6 +19,7 @@ class ImportClientJob implements ShouldQueue
 
     public $filePath;
     public $importStatusFk;
+    private $errors = [];
 
     /**
      * Create a new job instance.
@@ -38,23 +40,19 @@ class ImportClientJob implements ShouldQueue
      */
     public function handle()
     {
-        try{
-            Excel::import(new ClientsImport(), $this->filePath);
-        }catch (\Maatwebsite\Excel\Validators\ValidationException $e){
-            $failures = $e->failures();
-            dump(1);
-            dd($failures);
-        }
-//        Excel::import(new ClientsImport(), $this->filePath);
+        $import = new ClientsImport();
+        $import->import($this->filePath);
+        $this->errors = $import->failures();
         $this->updateImportStatus();
     }
 
     /**
      * Handle a job failure.
      *
+     * @param $Exception
      * @return void
      */
-    public function failed($ex)
+    public function failed($Exception)
     {
         $this->updateImportStatus(false);
     }
@@ -63,7 +61,7 @@ class ImportClientJob implements ShouldQueue
         $importStatus = (new ImportStatus())->find($this->importStatusFk);
         if (!empty($importStatus->id)){
             $status = ($success) ? ImportStatus::STATUS_MAP['SUCCESS'] : ImportStatus::STATUS_MAP['FAILED'];
-            $importStatus->update(['status' => $status]);
+            $importStatus->update(['status' => $status, 'fails' => json_encode($this->errors)]);
         }
     }
 }
