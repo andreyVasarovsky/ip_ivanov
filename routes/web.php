@@ -33,6 +33,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::post('/', 'IndexController')->name('admin.client.index');
         Route::get('/create', 'CreateController')->name('admin.client.create');
         Route::get('/deleted', 'DeletedListController')->name('admin.client.deleted');
+        Route::get('/export', 'ExportController')->name('admin.client.export');
         Route::post('/import', 'ImportController')->name('admin.client.import');
         Route::post('/store', 'StoreController')->name('admin.client.store');
         Route::get('/{client}', 'ShowController')->name('admin.client.show');
@@ -62,8 +63,5 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     });
     Route::group(['namespace' => 'ImportStatus', 'prefix' => 'import_status'], function() {
         Route::get('/', 'IndexController')->name('admin.import_status.index');
-    });
-    Route::group(['namespace' => 'ExportList', 'prefix' => 'export'], function() {
-        Route::get('/', 'IndexController')->name('admin.export.index');
     });
 });
