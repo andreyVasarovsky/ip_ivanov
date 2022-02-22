@@ -11,18 +11,22 @@
                         <div class="col-12 mb-2">
                             <h1 class="m-0 d-inline align-middle">Удобрения</h1>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 mb-2">
                             <a href="{{ route('admin.fertilizer.create') }}" type="button"
-                               class="btn btn-success d-inline">Добавить</a>
+                               class="btn btn-sm btn-success d-inline">Добавить</a>
+                            <a href="{{ route('admin.fertilizer.export') }}" type="button"
+                               class="btn btn-sm btn-info d-inline text-white">Экспорт</a>
+                            <a href="{{ route('admin.fertilizer.deleted') }}" type="button"
+                               class="btn btn-sm btn-dark d-inline float-right">Посмотреть удаленные</a>
+                        </div>
+                        <div class="col-12">
                             <form action="{{ route('admin.fertilizer.import') }}" method="POST"
                                   enctype="multipart/form-data" class="d-inline w-25">
                                 @csrf
                                 <input type="file" name="file" class="form-control w-25 d-inline"
                                        accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>
-                                <button class="btn btn-success d-inline">Импортировать EXCEL</button>
+                                <button class="btn btn-sm btn-success d-inline">Импортировать EXCEL</button>
                             </form>
-                            <a href="{{ route('admin.fertilizer.deleted') }}" type="button"
-                               class="btn btn-dark d-inline float-right">Посмотреть удаленные</a>
                         </div>
                         <div class="col-12 mt-2">
                             @if (session('success'))

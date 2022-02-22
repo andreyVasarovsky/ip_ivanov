@@ -21,6 +21,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::post('/', 'IndexController')->name('admin.fertilizer.index');
         Route::get('/create', 'CreateController')->name('admin.fertilizer.create');
         Route::get('/deleted', 'DeletedListController')->name('admin.fertilizer.deleted');
+        Route::get('/export', 'ExportController')->name('admin.fertilizer.export');
         Route::post('/import', 'ImportController')->name('admin.fertilizer.import');
         Route::get('/{fertilizer}', 'ShowController')->name('admin.fertilizer.show');
         Route::get('/{fertilizer}/edit', 'EditController')->name('admin.fertilizer.edit');

@@ -13,6 +13,6 @@ class ExportController extends Controller
     public function __invoke()
     {
         $clients = Client::all();
-        return Excel::download(new ClientsExport($clients), 'clients.xlsx');
+        return Excel::download(new ClientsExport($clients), 'Clients.xlsx');
     }
 }
