@@ -14,7 +14,7 @@
                         <div class="col-12 mb-2">
                             <a href="{{ route('admin.client.create') }}" type="button"
                                class="btn btn-sm btn-success d-inline">Добавить</a>
-                            <a href="{{ route('admin.client.export') }}" type="button"
+                            <a href="{{ route('admin.client.export.xls') }}" type="button"
                                class="btn btn-sm btn-info d-inline text-white">Экспорт</a>
                             <a href="{{ route('admin.client.deleted') }}" type="button"
                                class="btn btn-sm btn-dark d-inline float-right">Посмотреть удаленные</a>
@@ -31,6 +31,9 @@
                         <div class="col-12 mt-2">
                             @if (session('success'))
                                 <div class="alert alert-success">{{ session('success') }}</div>
+                            @endif
+                            @if(session('error'))
+                                <div class="alert alert-danger">{{ session('error') }}</div>
                             @endif
                             @error('file')
                             <div class="text-danger">
@@ -72,6 +75,9 @@
                                                 </a>
                                                 <a href="{{ route('admin.client.edit', $client->id) }}" class="action">
                                                     <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a href="{{ route('admin.client.export.word', $client->id) }}" class="action">
+                                                    <i class="fas fa-file-word"></i>
                                                 </a>
                                                 <form action="{{ route('admin.client.destroy', $client->id) }}" method="POST" class="action">
                                                     @csrf

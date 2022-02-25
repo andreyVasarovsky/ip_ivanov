@@ -30,11 +30,14 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::delete('/{fertilizer}', 'DestroyController')->name('admin.fertilizer.destroy');
     });
     Route::group(['namespace' => 'Client', 'prefix' => 'clients'], function() {
+        Route::group(['namespace' => 'Export', 'prefix' => 'export'], function (){
+            Route::get('/xls', 'ExcelController')->name('admin.client.export.xls');
+            Route::get('/word{client}', 'WordController')->name('admin.client.export.word');
+        });
         Route::get('/', 'IndexController')->name('admin.client.index');
         Route::post('/', 'IndexController')->name('admin.client.index');
         Route::get('/create', 'CreateController')->name('admin.client.create');
         Route::get('/deleted', 'DeletedListController')->name('admin.client.deleted');
-        Route::get('/export', 'ExportController')->name('admin.client.export');
         Route::post('/import', 'ImportController')->name('admin.client.import');
         Route::post('/store', 'StoreController')->name('admin.client.store');
         Route::get('/{client}', 'ShowController')->name('admin.client.show');

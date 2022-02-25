@@ -1,14 +1,14 @@
 <?php
 
 
-namespace App\Http\Controllers\Admin\Client;
+namespace App\Http\Controllers\Admin\Client\Export;
 
 use App\Models\Client;
 use App\Exports\ClientsExport;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 
-class ExportController extends Controller
+class ExcelController extends Controller
 {
     public function __invoke()
     {

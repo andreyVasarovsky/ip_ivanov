@@ -23,7 +23,7 @@ class ClientsExport implements FromView, ShouldAutoSize, WithStyles
 
     public function view(): View
     {
-        return view('admin.client.export', [
+        return view('admin.client.export.xls', [
             'clients' => $this->clients
         ]);
     }

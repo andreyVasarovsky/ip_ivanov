@@ -10,6 +10,9 @@
                     <div class="row mb-2">
                         <div class="col-sm-6 align-items-center">
                             <h1 class="m-0 d-inline">Просмотр клиента</h1>
+                            <a href="{{ route('admin.client.export.word', $client->id) }}" class="link-icon">
+                                <i class="fas fa-file-word"></i>
+                            </a>
                             <a href="{{ route('admin.client.edit', $client->id) }}" class="link-icon">
                                 <i class="fas fa-edit"></i>
                             </a>
@@ -21,6 +24,9 @@
                                 </button>
                             </form>
                         </div>
+                        @if(session('error'))
+                            <div class="col-12 alert alert-danger">{{ session('error') }}</div>
+                        @endif
                     </div>
                 </div>
             </div>
